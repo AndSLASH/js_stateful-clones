@@ -24,9 +24,12 @@ function transformStateWithClones(state, actions) {
         }
         break;
 
-      default:
+      case 'clear':
         newState = {};
         break;
+
+      default:
+        throw new Error(`Unknown action type: '${act.type}'`);
     }
 
     stateHistory.push({ ...newState });
